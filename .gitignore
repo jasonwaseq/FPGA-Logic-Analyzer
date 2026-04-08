@@ -1,0 +1,32 @@
+# Build outputs
+build/
+
+# Simulation outputs
+tb/sim_build/
+*.vcd
+*.fst
+*.wlf
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# IDE and local tooling
+.idea/
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db

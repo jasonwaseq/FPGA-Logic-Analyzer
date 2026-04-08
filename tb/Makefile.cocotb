@@ -1,0 +1,25 @@
+# tb/Makefile.cocotb — cocotb sub-Makefile (included by top-level Makefile)
+#
+# Required variables passed by caller:
+#   TOPLEVEL        — Verilog top-level module name
+#   MODULE          — Python test module name (no .py)
+#   VERILOG_SOURCES — space-separated list of .sv/.v source files
+#
+# Optional:
+#   EXTRA_ARGS      — extra iverilog flags (e.g. -P overrides)
+
+SIM           ?= icarus
+TOPLEVEL_LANG  = verilog
+
+# Each test gets its own build directory so back-to-back runs in the same
+# tb/ working directory don't share (and incorrectly reuse) sim.vvp.
+SIM_BUILD      = sim_build_$(TOPLEVEL)
+
+# Disable automatic VCD dumping (avoids the cocotb_iverilog_dump elaboration
+# error on some cocotb/iverilog version combinations).  Set WAVES=1 on the
+# command line if you want a VCD: make sim-fsm WAVES=1
+WAVES         ?= 0
+
+export COCOTB_REDUCED_LOG_FMT
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

@@ -1,0 +1,44 @@
+# icebreaker.pcf — iCEBreaker pin constraints for logic_analyzer
+# iCEBreaker board: iCE40UP5K-SG48I
+#
+# Pin assignments reference: https://github.com/icebreaker-fpga/icebreaker
+#
+# Clock
+set_io  clk         35    # 12 MHz oscillator
+
+# Reset (active low; BTN1 = user button on iCEBreaker)
+set_io -pullup yes rst_n  10    # BTN1 (active low, pulled up)
+
+# UART (via iCEBreaker onboard FTDI FT2232H)
+set_io -pullup yes uart_rx_pin 6     # UART RX from host
+set_io  uart_tx_pin 9     # UART TX to host
+
+# Probe inputs — PMOD1A (8 signals) and PMOD1B (8 signals) = 16 total
+# PMOD1A: pins 4,2,47,45,48,3,46,44   (probe[7:0])
+set_io  probe_pins[0]   4
+set_io  probe_pins[1]   2
+set_io  probe_pins[2]   47
+set_io  probe_pins[3]   45
+set_io  probe_pins[4]   48
+set_io  probe_pins[5]   3
+set_io  probe_pins[6]   46
+set_io  probe_pins[7]   44
+
+# PMOD2: pins 43,38,34,31,42,36,32,28  (probe[15:8])
+set_io  probe_pins[8]   43
+set_io  probe_pins[9]   38
+set_io  probe_pins[10]  34
+set_io  probe_pins[11]  31
+set_io  probe_pins[12]  42
+set_io  probe_pins[13]  36
+set_io  probe_pins[14]  32
+set_io  probe_pins[15]  28
+
+# Status LEDs (iCEBreaker has 2 on-board LEDs at pins 11 and 37,
+# and 5 more on the 5-LED PMOD if attached)
+set_io  led_armed     11  # Green LED (on-board)
+set_io  led_complete  37  # Red LED (on-board)
+
+# led_triggered requires external LED or LED PMOD
+# Uncomment and set to PMOD pin if LED PMOD is attached:
+# set_io  led_triggered  26
