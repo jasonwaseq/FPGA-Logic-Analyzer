@@ -406,7 +406,10 @@ module uart_cmd_parser #(
                             len_reg     <= rx_data;
                             chk_accum   <= chk_accum ^ rx_data;
                             payload_idx <= '0;
-                            p_state     <= (rx_data == 0) ? P_CHECKSUM : P_PAYLOAD;
+                            if (rx_data == 0)
+                                p_state <= P_CHECKSUM;
+                            else
+                                p_state <= P_PAYLOAD;
                         end
                     end
                 end

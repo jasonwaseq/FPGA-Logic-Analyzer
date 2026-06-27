@@ -1,0 +1,10 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1782538492" />
+    <testcase name="test_ping" classname="test_top_logic_analyzer" file="/mnt/c/Users/jason/Documents/FPGA-Logic-Analyzer/tb/test_top_logic_analyzer.py" lineno="165" time="0.153519868850708" sim_time_ns="931000.0" ratio_time="6064361.616315349" />
+    <testcase name="test_set_get_reg" classname="test_top_logic_analyzer" file="/mnt/c/Users/jason/Documents/FPGA-Logic-Analyzer/tb/test_top_logic_analyzer.py" lineno="176" time="0.30577516555786133" sim_time_ns="2758000.0" ratio_time="9019699.147143813" />
+    <testcase name="test_arm_status_complete_read" classname="test_top_logic_analyzer" file="/mnt/c/Users/jason/Documents/FPGA-Logic-Analyzer/tb/test_top_logic_analyzer.py" lineno="197" time="1.3000905513763428" sim_time_ns="13320000.0" ratio_time="10245440.200991202" />
+    <testcase name="test_abort" classname="test_top_logic_analyzer" file="/mnt/c/Users/jason/Documents/FPGA-Logic-Analyzer/tb/test_top_logic_analyzer.py" lineno="291" time="0.26129651069641113" sim_time_ns="3123000.0" ratio_time="11951939.165496457" />
+    <testcase name="test_rle_constant_probe" classname="test_top_logic_analyzer" file="/mnt/c/Users/jason/Documents/FPGA-Logic-Analyzer/tb/test_top_logic_analyzer.py" lineno="315" time="0.9366850852966309" sim_time_ns="9149000.0" ratio_time="9767423.591572061" />
+  </testsuite>
+</testsuites>

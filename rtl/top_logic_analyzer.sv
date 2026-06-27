@@ -74,6 +74,9 @@ module top_logic_analyzer #(
     localparam int UART_FRAME_CLKS = (CLK_FREQ / BAUD_RATE) * 12;
     localparam int RX_HOLDOFF_W    = $clog2(UART_FRAME_CLKS + 1);
     logic [RX_HOLDOFF_W-1:0] rx_holdoff_ctr = '0;
+    logic [7:0] tx_data;
+    logic       tx_valid;
+    logic       tx_ready;
 
     uart_rx #(
         .CLK_FREQ (CLK_FREQ),
@@ -103,10 +106,6 @@ module top_logic_analyzer #(
     // -----------------------------------------------------------------------
     // UART TX
     // -----------------------------------------------------------------------
-    logic [7:0] tx_data;
-    logic       tx_valid;
-    logic       tx_ready;
-
     uart_tx #(
         .CLK_FREQ (CLK_FREQ),
         .BAUD_RATE(BAUD_RATE)
